@@ -37,6 +37,8 @@ The complete information for installing Oracle XE 11g on Ubuntu 12.04 using Vagr
 * Run `vagrant up` from the base directory of this project. The first time this will take a while -- up to 30 minutes on
   my machine. Please note that building the VM involves downloading an Ubuntu Desktop 16.04
   [base box](http://docs.vagrantup.com/v2/boxes.html) which is 323MB in size.
+  
+* Run `vagrant ssh` followed by `sudo passwd vagrant` to set the user pwd
 
 ## Connecting
 
