@@ -1,15 +1,24 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant.configure("2") do |config|
-  # All Vagrant configuration is done here. The most common configuration
-  # options are documented and commented below. For a complete reference,
-  # please see the online documentation at vagrantup.com.
+Vagrant.configure(2) do |config|
+  # specify the official ubuntu desktop image by canonical
+  config.vm.box = "ubuntu/xenial64"
 
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-  config.vm.hostname = "oracle"
+  config.ssh.forward_agent = true
+  config.vm.network "private_network", ip: "192.168.50.198"
+  #config.vm.network "forwarded_port", guest: 80, host: 80
+  #config.vm.network "forwarded_port", guest: 3000, host: 3000
 
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = "8000"
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
+    vb.gui = true
+    vb.customize ["modifyvm", :id, "--monitorcount", "1"]
+    # fix the openGL bug in vb guest additions 5.20 causing chrome to be always on top
+    vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+  end
+    
   # share this project under /home/vagrant/vagrant-ubuntu-oracle-xe
   config.vm.synced_folder ".", "/home/vagrant/vagrant-ubuntu-oracle-xe", :mount_options => ["dmode=777","fmode=666"]
 
