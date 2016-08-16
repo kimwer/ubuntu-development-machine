@@ -38,6 +38,11 @@ Vagrant.configure(2) do |config|
   # end
   # share this project under /home/vagrant/vagrant-ubuntu-oracle-xe
   config.vm.synced_folder ".", "/home/vagrant/vagrant-ubuntu-oracle-xe", :mount_options => ["dmode=777","fmode=666"]
+  # and the git repository under /home/vagrant/git
+  config.vm.synced_folder "c:/Diverses/Projekte/git/", "/home/vagrant/git", owner: "vagrant", group: "vagrant"
+  # add the necessary configs for using git
+  config.vm.provision "copy-ssh-keys", type: "file", source: "~/.ssh", destination: "."
+  config.vm.provision "copy-gitconfig", type: "file", source: "~/.gitconfig", destination: ".gitconfig"  
 
   # Setting the timezone to Germany
   config.vm.provision :shell, :inline => "echo \"Europe/Berlin\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
