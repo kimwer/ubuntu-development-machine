@@ -26,16 +26,6 @@ Vagrant.configure(2) do |config|
 	# attribute name might be broken since 1604 has its hostname harcoded
 	vb.customize ["modifyvm", :id, "--name", "vagrant"]
   end
-  # same as above, but with ugly old syntax. saved as comment as backup
-  # config.vm.provider :virtualbox do |vb|
-  # # Use VBoxManage to customize the VM
-  # vb.customize ["modifyvm", :id,
-  #               "--name", "oracle",
-  #               # Oracle claims to need 512MB of memory available minimum
-  #               "--memory", "512",
-  #               # Enable DNS behind NAT
-  #               "--natdnshostresolver1", "on"]
-  # end
   # share this project under /home/vagrant/vagrant-ubuntu-oracle-xe
   config.vm.synced_folder ".", "/home/vagrant/vagrant-ubuntu-oracle-xe", :mount_options => ["dmode=777","fmode=666"]
   # and the git repository under /home/vagrant/git
