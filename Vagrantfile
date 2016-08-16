@@ -66,6 +66,6 @@ SCRIPT
     puppet.options = "--verbose --trace"
   end
 
-  # Run the Maven goals for data-with-flyway
-  config.vm.provision "shell", path: "flyway.sh"
+  # Run the Maven goals for data-with-flyway | not yet... disabled until testdata on local DB is needed
+  # config.vm.provision "shell", path: "flyway.sh"
 end
