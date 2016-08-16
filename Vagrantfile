@@ -4,6 +4,7 @@
 Vagrant.configure(2) do |config|
   # specify the official ubuntu desktop image by canonical
   config.vm.box = "boxcutter/ubuntu1604-desktop"
+  config.vm.provision "overwrite-auto-update", type: "file", source: "./scripts/configuration/10periodic", destination: "/home/vagrant/10periodic"
   #unattended updates will cause this to fail at this certain point, since dpkg db could be locked
   config.vbguest.auto_update = false
   config.ssh.forward_agent = true
