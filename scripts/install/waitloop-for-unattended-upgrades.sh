@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 30
 isRunning=$(pgrep -cf "apt-get|dpkg")
 echo "$isRunning"
 echo '[INFO] Checking for unattended upgrades to complete'
