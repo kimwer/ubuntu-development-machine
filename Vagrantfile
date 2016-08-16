@@ -3,13 +3,12 @@
 
 Vagrant.configure(2) do |config|
   # specify the official ubuntu desktop image by canonical
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "boxcutter/ubuntu1604-desktop"
 
   config.ssh.forward_agent = true
   config.vm.network "private_network", ip: "192.168.50.198"
   #config.vm.network "forwarded_port", guest: 80, host: 80
   #config.vm.network "forwarded_port", guest: 3000, host: 3000
-
   # Forward Oracle port
   config.vm.network :forwarded_port, guest: 1521, host: 1521
   # Specific configuration for virtual box so you can fine-tune various backing
