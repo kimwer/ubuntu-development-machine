@@ -7,3 +7,4 @@ do
 echo "E: dpkg or apt-get are still running."
 sleep 0.5
 done
+echo '[INFO] Check completed'
