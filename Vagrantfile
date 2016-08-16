@@ -53,7 +53,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "install-screen", type: "shell", path: $install + "/install-screen.sh", privileged: true
   config.vm.provision "install-tree", type: "shell", path: $install + "/install-tree.sh", privileged: true
   config.vm.provision "install-chrome", type: "shell", path: $install + "/install-chrome.sh", privileged: false
-  
+  config.vm.provision "install-intellij", type: "shell", path: $install + "/install-intellij.sh", privileged: true
   config.vm.provision "uninstall-amazon", type: "shell", path: $install + "/uninstall-amazon.sh", privileged: false
   config.vm.provision "uninstall-office", type: "shell", path: $install + "/uninstall-office.sh", privileged: false
   
