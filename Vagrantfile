@@ -23,7 +23,6 @@ Vagrant.configure(2) do |config|
 	vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     # fix the openGL bug in vb guest additions 5.20 causing chrome to be always on top
     vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
-	# attribute name might be broken since 1604 has its hostname harcoded
 	vb.customize ["modifyvm", :id, "--name", "vagrant"]
   end
   # share this project under /home/vagrant/vagrant-ubuntu-oracle-xe

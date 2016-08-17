@@ -12,7 +12,7 @@ VERSION=$(wget "https://www.jetbrains.com/intellij-repository/releases" -qO- | g
 
 # Prepend base URL for download
 URL="https://download.jetbrains.com/idea/ideaIU-$VERSION.tar.gz"
-https://download.jetbrains.com/idea/ideaIU-162.1628.17.tar.gz
+
 echo $URL
 
 # Truncate filename
