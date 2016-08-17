@@ -8,7 +8,9 @@ echo "[INFO ]Install IntelliJ IDEA"
 #[ $(id -u) != "0" ] && exec sudo "$0" "$@"
 
 # Fetch the most recent version
-VERSION=$(wget "https://www.jetbrains.com/intellij-repository/releases" -qO- | grep -P -o -m 1 "(?<=https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/BUILD/)[^/]+(?=/)")
+#VERSION=$(wget "https://www.jetbrains.com/intellij-repository/releases" -qO- | grep -P -o -m 1 "(?<=https://www.jetbrains.com/intellij-repository/releases/com/jetbrains/intellij/idea/BUILD/)[^/]+(?=/)")
+#hardcode version bc latest version (40) has access denied for download link ...
+VERSION="162.1628.17"
 
 # Prepend base URL for download
 URL="https://download.jetbrains.com/idea/ideaIU-$VERSION.tar.gz"
