@@ -4,6 +4,15 @@
 This project provides a complete development environment with e.g Oracle XE, Maven, GIT on Ubuntu Desktop 16.04., using
 [Vagrant] and [Puppet].
 
+## Integrated features
+* IntelliJ Ultimate IDEA
+* Oracle XE DB
+* Maven
+* Git (additional mount your parent folder, assuming it's the git repo, as synchronized folder under ~/git)
+* NodeJS
+* Puppet
+* Flyway
+
 ## Acknowledgements
 The complete information for installing Oracle XE 11g on Ubuntu 12.04 using Vagrant was taken from the GitHub repository
 [vagrant-ubuntu-oracle-xe] by Hilverd Reker. (https://github.com/hilverd/vagrant-ubuntu-oracle-xe/blob/master/LICENSE.txt)
