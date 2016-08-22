@@ -31,7 +31,9 @@ Vagrant.configure(2) do |config|
   config.vm.synced_folder "..", "/home/vagrant/git", owner: "vagrant", group: "vagrant"
   # add the necessary configs for using git
   config.vm.provision "copy-ssh-keys", type: "file", source: "~/.ssh", destination: "."
-  config.vm.provision "copy-gitconfig", type: "file", source: "~/.gitconfig", destination: ".gitconfig"  
+  config.vm.provision "copy-gitconfig", type: "file", source: "~/.gitconfig", destination: ".gitconfig"
+  config.vm.provision "copy-profile", type: "file", source: "~/.profile", destination: ".profile"
+  
 
   # install all the dev stuff e.g. git, maven, puppet, chrome 
   
@@ -45,6 +47,7 @@ Vagrant.configure(2) do |config|
   
   # Setting the timezone to Germany, dpkg-reconfigure should not be locked any more
   config.vm.provision :shell, :inline => "echo \"Europe/Berlin\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
+  config.vm.provision "configure-locale", type: "shell", path: $configuration + "/configure-locale.sh", privileged: true
   
   config.vm.provision "install-git", type: "shell", path: $install + "/install-git.sh", privileged: true
   config.vm.provision "install-nodejs", type: "shell", path: $install + "/install-nodejs.sh", privileged: true
