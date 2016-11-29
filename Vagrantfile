@@ -4,6 +4,7 @@
 Vagrant.configure(2) do |config|
   # specify the official ubuntu desktop image by canonical
   config.vm.box = "boxcutter/ubuntu1604-desktop"
+  ENV['LC_ALL']="de_DE.UTF-8"
   #unattended updates will cause this to fail at this certain point, since dpkg db could be locked
   config.vbguest.auto_update = false
   config.ssh.forward_agent = true
